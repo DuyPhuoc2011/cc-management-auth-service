@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-deployment
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: auth
+  template:
+    metadata:
+      labels:
+        app: auth
+    spec:
+      containers:
+        - name: auth-container
+          image: duyphuoc/cc-management:auth-service-11.0
+          # image: duyphuoc/cc-management:auth-service-test-5.0
+          imagePullPolicy: Always
+          env:
+            - name: NODE_ENV
+              value: production
+          ports:
+            - containerPort: 4200
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-service
+spec:
+  selector:
+    app: auth
+  ports:
+  - protocol: "TCP"
+    port: 80
+    targetPort: 4200
+
+  
