@@ -46,7 +46,7 @@ pipeline {
             steps {
                 // Deploy
                 script {
-                    sh "kubectl set image deployment/auth auth=${IMAGE_TAG}"
+                    sh "kubectl set image deployment/auth-deployment auth=${IMAGE_TAG}"
                 }
             }
         }
