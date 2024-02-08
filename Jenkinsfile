@@ -47,6 +47,7 @@ pipeline {
                 // Deploy
                 script {
                     sh "kubectl set image deployment/auth-deployment auth-container=${IMAGE_TAG}"
+                    sh "kubectl rollout restart deployment/auth-deployment"
                 }
             }
         }
