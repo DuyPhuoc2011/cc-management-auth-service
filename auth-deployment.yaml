@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: auth-deployment
 spec:
-  replicas: 4
+  replicas: 2
   selector:
     matchLabels:
       app: auth
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: auth-container
-          image: duyphuoc/cc-management:auth-service-11.0
+          image: duyphuoc/cc-management:auth-staging-3a7c467
           # image: duyphuoc/cc-management:auth-service-test-5.0
           imagePullPolicy: Always
           env:
