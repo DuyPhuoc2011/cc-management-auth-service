@@ -12,8 +12,8 @@ const config = {
     database: {
       db_user: 'postgres',
       db_pass: 'Pa55w0rd',
-      db_host: 'pgpool-service',
-      db_port: '5432',
+      db_host: '10.10.0.14',
+      db_port: '5437',
       db_database: 'postgres'
     },
   }
